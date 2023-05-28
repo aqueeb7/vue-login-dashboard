@@ -43,7 +43,7 @@ const uSubmit = async () => {
 <template>
   <div class="columns">
     <div class="column is-half is-offset-one-quarter">
-      {{ formdata }}
+      <!-- {{ formdata }} -->
       <form @submit.prevent="uSubmit">
       <div class="field">
         <label class="label">Name</label>
