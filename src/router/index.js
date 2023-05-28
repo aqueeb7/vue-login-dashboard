@@ -12,10 +12,15 @@ const router = createRouter({
       meta: { requiresAuth: true }
     },
     {
-      path: '/login',
+      path: '/',
       name: 'login',
       component: () => import('../views/LoginView.vue')
     }
+    // {
+    //   path: '/',
+    //   name: 'home',
+    //   component: () => import('../views/HomeView.vue')
+    // }
   ]
 })
 
