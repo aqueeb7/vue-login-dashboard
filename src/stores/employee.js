@@ -32,10 +32,13 @@ export const useEmployeeStore = defineStore('employee', () => {
   }
   const addEmployee = async (data) => {
 
+    console.log({store: data});
+
     try {
       employee.loading = true;
-      const { data } = await apiClient.post('/employees', data);
-      employee.employees.unshift(data.data);
+      const { data } = await apiClient.post('/emp/add', data);
+      console.log(response);
+      employee.employees.unshift(data.details);
     } catch (error) {
       employee.error = error.message;
     } finally {

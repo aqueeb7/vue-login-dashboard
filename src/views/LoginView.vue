@@ -14,7 +14,7 @@ const ulogin = async () => {
       username: username.value,
       password: password.value,
     });
-    router.push("/employee");
+    router.push("/dashboard");
   } catch (error) {
     console.log(error);
   }
@@ -55,61 +55,4 @@ const ulogin = async () => {
       </div>
     </section>
   </div>
-  <!-- <div class="columns">
-    <div class="column is-half is-offset-one-quarter">
-      <div class="block container">
-        <div class="box bulma-center-mixin-parent">
-          <div class="card bulma-center-mixin">
-
-            <div class="card-content">
-              <div class="content">
-                <div>
-                  <h1 class="title is-3">Login</h1>
-                </div>
-                <div class="field">
-                  <label class="label">Username</label>
-                  <div class="control">
-                    <input
-                      class="input"
-                      type="text"
-                      placeholder="Username"
-                      v-model="username"
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="field">
-                  <label class="label">Password</label>
-                  <div class="control">
-                    <input
-                      class="input"
-                      type="password"
-                      placeholder="Password"
-                      v-model="password"
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="control">
-                    <button class="button is-link" @click="ulogin">
-                      Log In
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <form class="" @submit.prevent="ulogin">
-                  <label>Email</label>
-                  <input type="text" v-model="username" />
-                  <label>Password</label>
-                  <input type="password" v-model="password" />
-                  <button type="submit">Login</button>
-                </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
 </template>

@@ -8,6 +8,7 @@ const app = createApp(App)
 const pinia = createPinia()
 
 app.use(pinia)
+app.config.devtools = true
 app.use(router)
 
 app.mount('#app')

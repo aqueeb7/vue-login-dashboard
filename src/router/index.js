@@ -1,26 +1,28 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import EmployeeView from '../views/EmployeeView.vue';
+import DashboardView from '../views/DashboardView.vue';
 import { useAuthStore } from '../stores/auth';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/employee',
-      name: 'employee',
-      component: EmployeeView,
-      meta: { requiresAuth: true }
+      path: '/',
+      component: () => import('../layouts/BlankLayout.vue'),
+      children: [
+        { path: '', component: () => import('../views/LoginView.vue') }
+      ]
     },
     {
       path: '/',
-      name: 'login',
-      component: () => import('../views/LoginView.vue')
-    }
-    // {
-    //   path: '/',
-    //   name: 'home',
-    //   component: () => import('../views/HomeView.vue')
-    // }
+      component: () => import('../layouts/MainLayout.vue'),
+      children: [
+        { path: 'dashboard', component: () => import('../views/DashboardView.vue') },
+        { path: 'employee', component: () => import('../views/EmployeeView.vue') },
+        { path: 'employee/add', component: () => import('../components/forms/EmployeeForm.vue') },
+
+      ],
+      meta: { requiresAuth: true }
+    },
   ]
 })
 
@@ -29,7 +31,7 @@ router.beforeEach((to, from, next) => {
   const isAuthenticated = authStore.isAuthenticated
 
   if (to.meta.requiresAuth && !isAuthenticated) {
-    next('/login')
+    next('/')
   } else {
     next()
   }
